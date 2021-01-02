@@ -14,6 +14,8 @@ exports.run = function (filetype = 'small') {
         console.time('cbc encrypting ' + filetype)
         var textBytes = aesjs.utils.utf8.toBytes(text);
         var encryptedBytes = aesCbc.encrypt(textBytes);
+        // encryptedBytes[3] = !encryptedBytes[3];
+
         console.timeEnd('cbc encrypting ' + filetype);
 
         console.time('cbc decrypting ' + filetype)

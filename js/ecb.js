@@ -14,6 +14,7 @@ exports.run = function (filetype = 'small') {
         console.time('ecb encrypting ' + filetype)
         var textBytes = aesjs.utils.utf8.toBytes(text);
         var encryptedBytes = aesEcb.encrypt(textBytes);
+        // encryptedBytes[3] = !encryptedBytes[3];
         console.timeEnd('ecb encrypting ' + filetype);
 
         console.time('ecb decrypting ' + filetype)

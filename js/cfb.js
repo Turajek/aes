@@ -16,14 +16,14 @@ exports.run = function (filetype = 'small') {
         console.time('cfb encrypting ' + filetype)
         var textBytes = aesjs.utils.utf8.toBytes(text);
         var encryptedBytes = aesCfb.encrypt(textBytes);
-        encryptedBytes[3] = 1;
+        // encryptedBytes[3] = !encryptedBytes[3];
         console.timeEnd('cfb encrypting ' + filetype);
 
         console.time('cfb decrypting ' + filetype)
         var decryptedBytes = aesCfb.decrypt(encryptedBytes);
         var decryptedText = aesjs.utils.utf8.fromBytes(decryptedBytes);
         console.timeEnd('cfb decrypting ' + filetype);
-        console.log(decryptedText);
+        // console.log(decryptedText);
 
     });
 
